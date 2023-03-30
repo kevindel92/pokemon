@@ -1,7 +1,7 @@
 import {
     GET_ALL_POKEMONS,
     GET_ALL_TYPES,
-    FILTER_BY_TYPES,
+    // FILTER_BY_TYPES,
     GET_DETAILS,
     GET_BY_NAME,
     TYPE_FILTER,

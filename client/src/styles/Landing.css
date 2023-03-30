@@ -1,0 +1,29 @@
+.landingContainer {
+	background: url('../styles/styleImages/test3.jpg') no-repeat bottom center
+		fixed;
+
+	background-size: cover;
+	width: 100vmax;
+	height: 100vh;
+}
+
+.landingTittle {
+	margin-top: 0px;
+	font-size: 80px;
+}
+
+.landingBtn {
+	width: 160px;
+	height: 60px;
+	font-size: large;
+	font-weight: bold;
+	color: aliceblue;
+	background-color: red;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+.landingBtn:hover {
+	color: black;
+	background-color: yellow;
+}

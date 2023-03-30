@@ -1,0 +1,22 @@
+.page-btn {
+	margin-left: 3%;
+	width: 80px;
+	height: 35px;
+	cursor: pointer;
+	border-radius: 6px;
+	border-color: orange;
+	font-weight: bold;
+	font-size: large;
+}
+
+.page-btn:hover {
+	background-color: yellow;
+	color: black;
+}
+.page-btn:focus {
+	background-color: red;
+}
+
+.page {
+	margin-left: 60px;
+}

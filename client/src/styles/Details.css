@@ -1,0 +1,58 @@
+.detailsContainer {
+	background: url('../styles/styleImages/bv.jpg') top center no-repeat;
+	background-size: cover;
+	height: 100vh;
+	display: flex;
+}
+
+.detailsCard {
+	display: flex;
+	margin-left: 250px;
+	margin-top: 50px;
+}
+
+.detailImg {
+	width: 300px;
+	height: 300px;
+	margin-top: 150px;
+	margin-left: -300px;
+}
+
+.detailStats {
+	margin-left: 50px;
+	margin-top: 200px;
+	font-weight: bold;
+	border: solid 3px black;
+	height: 250px;
+	width: 250px;
+	background-color: antiquewhite;
+	border-radius: 18px;
+}
+
+.detailName {
+	border: solid black 2px;
+	height: 80px;
+	width: 280px;
+	display: flex;
+	justify-content: center;
+	background-color: antiquewhite;
+	border-radius: 18px;
+}
+
+.ulTypes {
+	list-style: none;
+	justify-content: center;
+	align-items: center;
+	margin-left: -30px;
+}
+
+.detailLoading {
+	border: solid black 3px;
+	height: 50px;
+	justify-content: center;
+	align-items: center;
+	background-color: antiquewhite;
+	border-radius: 8px;
+	margin-top: 250px;
+	margin-left: 500px;
+}

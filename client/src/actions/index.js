@@ -10,33 +10,33 @@ export const ORDER = "ORDER";
 export const CREATE_POKEMON = "CREATE_POKEMON";
 
 export function getPokemons() {
+    return async function (dispatch) {
     try {
-        return async function (dispatch) {
             var info = await axios.get("http://localhost:3001/pokemon");
             return dispatch({
                 type: GET_ALL_POKEMONS,
                 payload: info.data
             });
+        } catch (error) {
+            console.log(error);
         };
-    } catch (error) {
-        console.log(error);
     }
 }
 
 //---------------------------------------------------------------------------------------
 
 export const getTypes = () => {
+    return async function (dispatch) {
     try {
-        return async function (dispatch) {
             var info = await axios.get("http://localhost:3001/type");
             return dispatch({
                 type: GET_ALL_TYPES,
                 payload: info.data
             });
+        } catch (error) {
+            console.log(error);
+        }
         };
-    } catch (error) {
-        console.log(error);
-    }
 };
 
 //------------------------------------------------------------------------------
