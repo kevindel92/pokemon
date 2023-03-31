@@ -1,13 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../styles/Landing.css';
 
 export default function LandingPage() {
-    return (
-        <div>
-            <h1>Welcome to PokeApp!</h1>
-            <Link to="/home">
-                <button>Lest's Go!</button>
-                </Link>
-        </div>
-    );
-};
+	return (
+		<div className="landingContainer">
+			<h1 className="landingTittle">Welcome to PokeApp!</h1>
+			<Link to="/home">
+				<button className="landingBtn">Let's Go! </button>
+			</Link>
+		</div>
+	);
+}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPokemons, getTypes } from '../actions';
 import { typeFilter, createdFilter, orderSort } from '../actions/index';
-// import '../styles/Home.css';
+import '../styles/Home.css';
 import Pokemon from './Pokemon';
 import Paginado from './Paginado';
 import NavBar from './NavBar';
@@ -15,7 +15,6 @@ export default function Home() {
 
 	const pagePkm = useSelector((state) => state.allPokemons);
 	const [currentPage, setCurrentPage] = useState(1);
-    // eslint-disable-next-line
 	const [pkmPerPage, setPkmPerPage] = useState(12);
 	const lastPkmPage = currentPage * pkmPerPage;
 	const firstPkmPage = lastPkmPage - pkmPerPage;
@@ -30,7 +29,6 @@ export default function Home() {
 	}, [dispatch]);
 
 	const types = useSelector((state) => state.allTypes);
-    // eslint-disable-next-line
 	const [order, setOrder] = useState('');
 
 	useEffect(() => {

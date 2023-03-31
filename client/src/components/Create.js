@@ -1,121 +1,138 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getTypes } from "../actions";
-import { Link, useHistory } from "react-router-dom";
-import { createPokemon } from "../actions";
+import React from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getTypes } from '../actions';
+import { Link, useHistory } from 'react-router-dom';
+import { createPokemon } from '../actions';
+// import '../styles/Create.css';
 
 export default function Create() {
-    const dispatch = useDispatch();
-    const types = useSelector((state) => state.allTypes);
-    const pokemons = useSelector((state) => state.allPokemons);
-    const history = useHistory();
-    const [input, setInput] = useState({
-        name: "",
-        image: "",
-        hp: "",
-        attack: "",
-        defense: "",
-        speed: "",
-        height: "",
-        weight: "",
-        type: []
-    });
-    useEffect(() => {
-        dispatch(getTypes());
-    }, [dispatch]);
-    const handleChange = (e) => {
-        setInput({
-            ...input,
-            [e.target.name]: e.target.value.toLowerCase()
-        });
-        setFormErrors(
-            validate({
-                ...input,
-                [e.target.name]: e.target.value
-            })
-        );
-    };
-    const handleSelect = (e) => {
-        setInput({
-            ...input,
-            type: [...new Set([...input.type, e.target.value])]
-        });
-        setFormErrors(
-            validate({
-                ...input,
-                type: [...input.type, e.target.value]
-            })
-        );
-    };
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        let error = Object.keys(validate(input));
-        if (error.length !== 0 || !input.type.length) {
-            alert("Please, fill in the fields correctly");
-            return;
-        } else {
-            dispatch(createPokemon(input));
-            alert("Your pokemon has been created");
-            setInput({
-                name: "",
-                image: "",
-                hp: "",
-                attack: "",
-                defense: "",
-                speed: "",
-                height: "",
-                weight: "",
-                type: []
-            });
-            history.push("/home");
-        }
-    };
-    const handleDeleteT = (e) => {
-        setInput({
-            ...input,
-            type: []
-        });
-    };
-    const [formErrors, setFormErrors] = useState({});
-    function validateName(str) {
-        if (!/^[a-zA-Z\s]*$/.test(input.name)) return true;
-        if (str.length < 1) return true;
-        if (str[0] === "") return true;
-    };
-    function validateDuplicateName(str) {
-        let filtro = pokemons.filter((p) => p.name === str);
-        if (filtro.length) {
-            return true;
-        }
-    };
-    function validateImg(str) {
-        if (typeof str !== "string") return true;
-    };
-    function validateTypes(input) {
-        if (input.length < 1) return true;
-        if (input.length > 2) return true;
-    };
-    function validateStats(num) {
-        if (isNaN(num)) return true;
-        if (num < 1 || num > 999) return true;
-    };
+	const dispatch = useDispatch();
+	const types = useSelector((state) => state.allTypes);
+	const pokemons = useSelector((state) => state.allPokemons);
+	const history = useHistory();
+	const [input, setInput] = useState({
+		name: '',
+		image: '',
+		hp: '',
+		attack: '',
+		defense: '',
+		speed: '',
+		height: '',
+		weight: '',
+		type: []
+	});
 
-    function validate(data) {
-        let errors = {};
-        if (validateName(data.name)) errors.name = "Invalid name";
-        if (validateImg(data.image)) errors.image = "Invalid imagee url";
-        if (validateTypes(data.type)) errors.type = "Select types: min 1, max 2";
-        if (validateStats(data.hp)) errors.hp = "Min value: 0, max value: 999";
-        if (validateStats(data.speed)) errors.speed = "Min value: 0, max value: 999";
-        if (validateStats(data.attack)) errors.attack = "Min value: 0, max value: 999";
-        if (validateStats(data.defense)) errors.defense = "Min value: 0, max value: 999";
-        if (validateStats(data.weight)) errors.weight = "Min value: 0, max value: 999";
-        if (validateStats(data.height)) errors.height = "Min value: 0, max value: 999";
-        if (validateDuplicateName(data.name)) errors.name = "Name has already exist";
-        return errors;
-    };
-    
+	useEffect(() => {
+		dispatch(getTypes());
+	}, [dispatch]);
+
+	const handleChange = (e) => {
+		setInput({
+			...input,
+			[e.target.name]: e.target.value.toLowerCase()
+		});
+		setFormErrors(
+			validate({
+				...input,
+				[e.target.name]: e.target.value
+			})
+		);
+	};
+
+	const handleSelect = (e) => {
+		setInput({
+			...input,
+			type: [...new Set([...input.type, e.target.value])]
+		});
+		setFormErrors(
+			validate({
+				...input,
+				type: [...input.type, e.target.value]
+			})
+		);
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		let error = Object.keys(validate(input));
+		if (error.length !== 0 || !input.type.length) {
+			alert('Please, fill in the fields correctly');
+			return;
+		} else {
+			dispatch(createPokemon(input));
+			alert('your pokemon has been created');
+			setInput({
+				name: '',
+				image: '',
+				hp: '',
+				attack: '',
+				defense: '',
+				speed: '',
+				height: '',
+				weight: '',
+				type: []
+			});
+			history.push('/home');
+		}
+	};
+
+	const handleDeleteT = (e) => {
+		setInput({
+			...input,
+			type: []
+		});
+	};
+
+	const [formErrors, setFormErrors] = useState({});
+
+	function validateName(str) {
+		if (!/^[a-zA-Z\s]*$/.test(input.name)) return true;
+		if (str.length < 1) return true;
+		if (str[0] === ' ') return true;
+	}
+
+	function validateDuplicateName(str) {
+		let filtro = pokemons.filter((p) => p.name === str);
+		if (filtro.length) {
+			return true;
+		}
+	}
+
+	function validateImg(str) {
+		if (typeof str !== 'string') return true;
+	}
+
+	function validateTypes(input) {
+		if (input.length < 1) return true;
+		if (input.length > 2) return true;
+	}
+
+	function validateStats(num) {
+		if (isNaN(num)) return true;
+		if (num < 1 || num > 999) return true;
+	}
+
+	function validate(data) {
+		let errors = {};
+		if (validateName(data.name)) errors.name = 'Invalid name';
+		if (validateImg(data.image)) errors.image = 'Invalid image url';
+		if (validateTypes(data.type)) errors.type = 'Select types: min 1 max 2';
+		if (validateStats(data.hp)) errors.hp = 'min value: 0, max value:999';
+		if (validateStats(data.speed)) errors.speed = 'min value: 0, max value:999';
+		if (validateStats(data.attack))
+			errors.attack = 'min value: 0, max value:999';
+		if (validateStats(data.defense))
+			errors.defense = 'min value: 0, max value:999';
+		if (validateStats(data.weight))
+			errors.weight = 'min value: 0, max value:999';
+		if (validateStats(data.height))
+			errors.height = 'min value: 0, max value:999';
+		if (validateDuplicateName(data.name))
+			errors.name = 'name has already exist';
+		return errors;
+	}
+
 	return (
 		<div className="createContainer">
 			<Link to="/home">
