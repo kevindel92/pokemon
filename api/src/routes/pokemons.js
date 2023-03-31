@@ -2,7 +2,7 @@ const { Router } = require("express");
 
 const router = Router();
 
-const { getAllPkm, pkmById, createPkm } = require("../controllers/pokemon.js");
+const { getAllPkm, pkmById, createPkm } = require("../controllers/pokemon");
 
 // ruta para obtener todos y filtrar por nombre
 router.get("/", getAllPkm);

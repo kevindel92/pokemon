@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Pokemon, Type } = require("../db.js");
+const { Pokemon, Type } = require("../db");
 
 const dataApi = async () => {
     try {
