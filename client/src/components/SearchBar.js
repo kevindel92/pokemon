@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { searchByName } from "../actions/index";
+import { searchByName } from "../actions";
 
 export default function SearchBar() {
     const [name, setName] = useState("");
@@ -21,11 +21,10 @@ export default function SearchBar() {
         }
     }
     return (
-        <div>
+        <div className="">
             <form onSubmit={(e) => handleSubmit(e)}>
-                <input value={name} type="text" placeholder="Search Pokemon" onChange={(e) => handleChange(e)}>
-                    <button type="submit">Search</button>
-                </input>
+                <input value={name} className="" type="text" placeholder="Search Pokemon" onChange={(e) => handleChange(e)}></input>
+                    <button className="" type="submit">Search</button>
             </form>
         </div>
     );

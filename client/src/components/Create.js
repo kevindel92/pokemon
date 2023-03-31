@@ -1,9 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTypes } from "../actions/index";
+import { getTypes } from "../actions";
 import { Link, useHistory } from "react-router-dom";
-import { createPokemon } from "../actions/index";
+import { createPokemon } from "../actions";
 
 export default function Create() {
     const dispatch = useDispatch();
@@ -115,106 +115,158 @@ export default function Create() {
         if (validateDuplicateName(data.name)) errors.name = "Name has already exist";
         return errors;
     };
-    return (
-        <div>
-            <Link to="/home">
-                <button>Return Home</button>
-            </Link>
-            <h1>Create your Pokemon!</h1>
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <div>
-                    <div>
-                        <label>Name: </label>
-                        <input type="string" value={input.value} name="name" onChange={(e) => handleChange(e)}></input>
-                        {formErrors.name ? (
-                            <h4>
-                                <small>{formErrors.name}</small>
-                            </h4>
-                        ) : (
-                            false
-                        )}
-                    </div>
-                    <div>
-                        <label>Image: </label>
-                        <input type="url" value={input.image} name="image" onChange={(e) => handleChange(e)}></input>
-                        {formErrors.image ? (
-                            <h4>{formErrors.image}</h4>
-                        ) : (
-                            false
-                        )}
-                    </div>
-                    <div>
-                        <label>Hp: </label>
-                        <input type="number" value={input.hp} name="hp" onChange={(e) => handleChange(e)}></input>
-                        {formErrors.hp ? (
-                            <h4>{formErrors.hp}</h4>
-                        ) : (
-                            false
-                        )}
-                    </div>
-                    <div>
-                        <label>Attack: </label>
-                        <input type="number" value={input.attack} name="attack" onChange={(e) => handleChange(e)}></input>
-                        {formErrors.attack ? (
-                            <h4>{formErrors.attack}</h4>
-                        ) : (
-                            false
-                        )}
-                    </div>
-                    <div>
-                        <label>Defense: </label>
-                        <input type="number" value={input.defense} name="defense" onChange={(e) => handleChange(e)}></input>
-                        {formErrors.defense ? (
-                            <h4>{formErrors.defense}</h4>
-                        ) : (
-                            false
-                        )}
-                    </div>
-                    <div>
-                        <label>Speed: </label>
-                        <input type="number" value={input.speed} name="speed" onChange={(e) => handleChange(e)}></input>
-                        {formErrors.speed ? (
-                            <h4>{formErrors.speed}</h4>
-                        ) : (
-                            false
-                        )}
-                    </div>
-                    <div>
-                        <label>Height: </label>
-                        <input type="number" value={input.height} name="height" onChange={(e) => handleChange(e)}></input>
-                        {formErrors.height ? (
-                            <h4>{formErrors.height}</h4>
-                        ) : (
-                            false
-                        )}
-                    </div>
-                    <div>
-                        <label>Weight: </label>
-                        <input type="number" value={input.weight} name="weight" onChange={(e) => handleChange(e)}></input>
-                        {formErrors.weight ? (
-                            <h4>{formErrors.weight}</h4>
-                        ) : (
-                            false
-                        )}
-                    </div>
-                    <div>
-                        <label>Types: </label>
-                        <select onChange={(e) => handleSelect(e)}>
-                            {types.map((t) => (
-                                <option type="checkbox" ket={t.name} value={t.name}>{t.name}</option>
-                            ))}
-                        </select>
-                        <span>{input.type.map((t) => t + ", ")}
-                        <button type="button" onClick={handleDeleteT}>x</button></span>
-                        {formErrors.type ? (
-                            <h4>{formErrors.type}</h4>
-                        ) : (
-                            false
-                        )}
-                    </div>
-                    <button type="submit">Create</button>
-                </div>
-            </form>
-        </div>
-    );
-};
+    
+	return (
+		<div className="createContainer">
+			<Link to="/home">
+				<button className="btnReturnCreate">Return Home</button>
+			</Link>
+			<h1 className="CreateTitle">Create your Pokemon!</h1>
+			<form onSubmit={(e) => handleSubmit(e)}>
+				<div className="formCreate">
+					<div className="FormName">
+						<label>Name: </label>
+						<input
+							type="string"
+							value={input.name}
+							name="name"
+							onChange={(e) => handleChange(e)}
+						></input>
+						{formErrors.name ? (
+							<h4 className="errorForm">
+								<small>{formErrors.name}</small>
+							</h4>
+						) : (
+							false
+						)}
+					</div>
+					<div className="formImg">
+						<label>image: </label>
+						<input
+							type="url"
+							value={input.image}
+							name="image"
+							onChange={(e) => handleChange(e)}
+						></input>
+						{formErrors.image ? (
+							<h4 className="errorForm">{formErrors.image}</h4>
+						) : (
+							false
+						)}
+					</div>
+					<div className="formHp">
+						<label>Hp: </label>
+						<input
+							type="number"
+							value={input.hp}
+							name="hp"
+							onChange={(e) => handleChange(e)}
+						></input>
+						{formErrors.hp ? (
+							<h4 className="errorForm">{formErrors.hp}</h4>
+						) : (
+							false
+						)}
+					</div>
+					<div className="formAtk">
+						<label>Attack: </label>
+						<input
+							type="number"
+							value={input.attack}
+							name="attack"
+							onChange={(e) => handleChange(e)}
+						></input>
+						{formErrors.attack ? (
+							<h4 className="errorForm">{formErrors.attack}</h4>
+						) : (
+							false
+						)}
+					</div>
+					<div className="formDef">
+						<label>Defense: </label>
+						<input
+							type="number"
+							value={input.defense}
+							name="defense"
+							onChange={(e) => handleChange(e)}
+						></input>
+						{formErrors.defense ? (
+							<h4 className="errorForm">{formErrors.defense}</h4>
+						) : (
+							false
+						)}
+					</div>
+					<div className="formSpeed">
+						<label>Speed: </label>
+						<input
+							type="number"
+							value={input.speed}
+							name="speed"
+							onChange={(e) => handleChange(e)}
+						></input>
+						{formErrors.speed ? (
+							<h4 className="errorForm">{formErrors.speed}</h4>
+						) : (
+							false
+						)}
+					</div>
+					<div className="formHeight">
+						<label>Height: </label>
+						<input
+							type="number"
+							value={input.height}
+							name="height"
+							onChange={(e) => handleChange(e)}
+						></input>
+						{formErrors.height ? (
+							<h4 className="errorForm">{formErrors.height}</h4>
+						) : (
+							false
+						)}
+					</div>
+					<div>
+						<label className="formWeight">Weight: </label>
+						<input
+							type="number"
+							value={input.weight}
+							name="weight"
+							onChange={(e) => handleChange(e)}
+						></input>
+						{formErrors.weight ? (
+							<h4 className="errorForm">{formErrors.weight}</h4>
+						) : (
+							false
+						)}
+					</div>
+					<div className="formTypes">
+						<label>Types: </label>
+						<select onChange={(e) => handleSelect(e)}>
+							{types.map((t) => (
+								<option type="checkbox" key={t.name} value={t.name}>
+									{t.name}
+								</option>
+							))}
+						</select>
+						<span>
+							{input.type.map((t) => t + ', ')}
+							<button
+								className="typesBtn"
+								type="button"
+								onClick={handleDeleteT}
+							>
+								x
+							</button>
+						</span>
+
+						{formErrors.type ? (
+							<h4 className="errorForm">{formErrors.type}</h4>
+						) : (
+							false
+						)}
+					</div>
+					<button type="submit" className="submitBtnCreate">Create</button>
+				</div>
+			</form>
+		</div>
+	);
+}
