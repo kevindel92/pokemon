@@ -2,8 +2,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { useEffect } from 'react';
-import { getDetails } from '../actions';
-import '../styles/Details.css';
+import { getDetails } from '../../redux/actions';
+// import '../styles/Details.css';
 
 export default function Details() {
 	let dispatch = useDispatch();

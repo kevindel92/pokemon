@@ -1,6 +1,6 @@
 import React from 'react';
-import foto from '../styles/styleImages/vectorerror.png';
-import '../styles/Error.css';
+import foto from '../../styles/styleImages/vectorerror.png';
+// import '../styles/Error.css';
 
 export default function Error() {
 	return (

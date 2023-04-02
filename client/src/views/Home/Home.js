@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPokemons, getTypes } from '../actions';
-import { typeFilter, createdFilter, orderSort } from '../actions/index';
-import '../styles/Home.css';
-import Pokemon from './Pokemon';
-import Paginado from './Paginado';
-import NavBar from './NavBar';
-import SearchBar from './SearchBar';
-import foto from '../styles/styleImages/pkmlogo.png';
-import Error from './Error';
+// import {  } from '../../redux/actions';
+import { typeFilter, createdFilter, orderSort, getPokemons, getTypes } from '../../redux/actions';
+// import '../styles/Home.css';
+import Pokemon from '../../components/Card/Pokemon';
+import Paginado from '../../components/Paginated/Paginated';
+import NavBar from '../../components/NavBar/NavBar';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import foto from '../../styles/styleImages/pkmlogo.png';
+import Error from '../../components/Error/Error';
 
 export default function Home() {
 	const dispatch = useDispatch();

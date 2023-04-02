@@ -7,7 +7,7 @@ import {
 	CREATED_FILTER,
 	ORDER,
 	CREATE_POKEMON
-} from '../actions';
+} from './actions';
 
 let initialState = {
 	allPokemons: [],

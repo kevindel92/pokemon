@@ -1,10 +1,10 @@
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import LandingPage from './components/LandingPage';
-import Home from './components/Home';
-import Details from './components/Details';
-import Create from './components/Create';
-import Error from './components/Error';
+import LandingPage from './views/LandingPage/LandingPage';
+import Home from './views/Home/Home';
+import Details from './views/Detail/Details';
+import Create from './views/Form/Create';
+import Error from './components/Error/Error';
 
 function App() {
 	return (

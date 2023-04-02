@@ -1,9 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTypes } from '../actions';
 import { Link, useHistory } from 'react-router-dom';
-import { createPokemon } from '../actions';
+import { createPokemon, getTypes } from '../../redux/actions';
 // import '../styles/Create.css';
 
 export default function Create() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Paginado.css';
+// import '../styles/Paginado.css';
 export default function Paginado({ pkmPerPage, pagePkm, paginado }) {
 	const pageNumbers = [];
 
