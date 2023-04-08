@@ -1,19 +1,15 @@
 .navBtn {
+	background-color: rgba(134, 139, 131, 0.852);
 	width: 250px;
 	height: 50px;
-	border-radius: 9px;
+	border-radius: 10px;
 	display: flex;
-	justify-content: center;
+	justify-content:center;
+	/* position:fixed; */
 	align-items: center;
 	font-size: medium;
 	font-weight: bold;
 	cursor: pointer;
-
-	margin-top: -110px;
-	background-color: yellow;
-}
-
-.navBtn:hover {
-	background-color: rgb(205, 165, 6);
-	border: solid white 2px;
+	margin-left: 80%;
+	margin-top: -6%;
 }

@@ -9,7 +9,7 @@ const { createPkm } = require('../controllers/postPokemon');
 // traigo todos los pokemons de la api como de la base de datos, y busco el nombre http://localhost:3001/pokemons?name=pikachu
 
 const validate = (req, res, next) => {
-    const { name, type, hp, attack, defense, speed, height, weight } = req.body;
+    const { name, type, hp, attack, defense, speed, height, weight, image } = req.body;
     if (!name) return res.status(400).json({ error: 'Missing name' });
     if (!type) return res.status(400).json({ error: 'Missing type' });
     if (!hp) return res.status(400).json({ error: 'Missing hp' });
@@ -18,7 +18,7 @@ const validate = (req, res, next) => {
     if (!speed) return res.status(400).json({ error: 'Missing speed' });
     if (!height) return res.status(400).json({ error: 'Missing height' });
     if (!weight) return res.status(400).json({ error: 'Missing weight' });
-
+    if (!image) return res.status(400).json( { error: 'Missing image'});
     next();
 }
 

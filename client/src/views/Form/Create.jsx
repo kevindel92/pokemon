@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { createPokemon, getTypes } from '../../redux/actions';
 import './Create.css';
+import foto from '../../components/img/234.png'
 
 export default function Create() {
 	const dispatch = useDispatch();
@@ -100,6 +101,7 @@ export default function Create() {
 
 	function validateImg(str) {
 		if (typeof str !== 'string') return true;
+		if (! input.image) input.image = foto;
 	}
 
 	function validateTypes(input) {
@@ -109,7 +111,7 @@ export default function Create() {
 
 	function validateStats(num) {
 		if (isNaN(num)) return true;
-		if (num < 1 || num > 999) return true;
+		if (num < 1 || num > 9999) return true;
 	}
 
 	function validate(data) {
@@ -117,13 +119,13 @@ export default function Create() {
 		if (validateName(data.name)) errors.name = 'Invalid name';
 		if (validateImg(data.image)) errors.image = 'Invalid image url';
 		if (validateTypes(data.type)) errors.type = 'Select types: min 1 max 2';
-		if (validateStats(data.hp)) errors.hp = 'min value: 0, max value:999';
-		if (validateStats(data.speed)) errors.speed = 'min value: 0, max value:999';
-		if (validateStats(data.attack)) errors.attack = 'min value: 0, max value:999';
-		if (validateStats(data.defense)) errors.defense = 'min value: 0, max value:999';
-		if (validateStats(data.weight)) errors.weight = 'min value: 0, max value:999';
-		if (validateStats(data.height)) errors.height = 'min value: 0, max value:999';
+		if (validateStats(data.hp)) errors.hp = 'min value: 0, max value:9999';
+		if (validateStats(data.speed)) errors.speed = 'min value: 0, max value:9999';
+		if (validateStats(data.attack)) errors.attack = 'min value: 0, max value:9999';
+		if (validateStats(data.defense)) errors.defense = 'min value: 0, max value:9999';
 		if (validateDuplicateName(data.name)) errors.name = 'name has already exist';
+		if (validateStats(data.weight)) errors.weight = 'min value: 0, max value:9999';
+		if (validateStats(data.height)) errors.height = 'min value: 0, max value:9999';
 		return errors;
 	}
 
@@ -132,6 +134,7 @@ export default function Create() {
 			<Link to="/home">
 				<button className="btnReturnCreate">Return Home</button>
 			</Link>
+			<div className='formContainer'>
 			<h1 className="CreateTitle">Create your Pokemon!</h1>
 			<form onSubmit={(e) => handleSubmit(e)}>
 				<div className="formCreate">
@@ -278,6 +281,7 @@ export default function Create() {
 					<button type="submit" className="submitBtnCreate">Create</button>
 				</div>
 			</form>
+			</div>
 		</div>
 	);
 }

@@ -9,7 +9,7 @@ export default function Paginado({ pkmPerPage, pagePkm, paginado }) {
 
 	return (
 		<div className="paginado">
-			<h4 className="page">Page: </h4>
+			{/* <h4 className="page">Page: </h4> */}
 			<nav>
 				<ul className="pag">
 					{pageNumbers &&

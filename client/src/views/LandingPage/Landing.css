@@ -1,24 +1,25 @@
 * {
     margin: 0;
     padding: 0;
+	text-decoration: none;
 }
 
 .landingContainer {
-	background: url('../../components/img/14711-pokemon.jpg') no-repeat;
+	background: url('../../components/img/wp8797805.jpg') no-repeat;
 	background-position: center center;
 	background-size: cover;
-	width: 100vmax;
+	/* width: 100vmax; */
 	height: 100vh;
 }
 
 .landingTittle {
-	margin-top: 60px;
+	margin-top: 30px;
 	font-size: 80px;
-	color: rgb(255, 203, 5);
+	color: rgb(57, 56, 55);
 }
 
 .landingButton {
-	margin-top: 20px;
+	margin-top: 150px;
 	width: 160px;
 	height: 60px;
 	font-size: large;

@@ -38,7 +38,7 @@ export default function Details() {
 						<div className="detailStats">
 							<h2>Stats: </h2><br />
 							<ul className="ulTypes">
-								<li className="detailTypes">Types: {pkmDetail.type}</li>
+								<li className="detailTypes">Types: {pkmDetail.type}</li><br />
 								<li>Hp: {pkmDetail.hp}</li>
 								<li>Attack: {pkmDetail.attack} </li>
 								<li>Defense: {pkmDetail.defense}</li>

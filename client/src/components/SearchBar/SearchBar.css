@@ -1,23 +1,26 @@
 .searchInput {
-	margin-top: 100px;
-	margin-left: -145%;
+	font-weight: bold;
+	margin-top: -60px;
+	margin-left: 10%;
 	width: 250px;
 	height: 30px;
-	cursor: pointer;
-	border-radius: 8px;
-	display: flex;
+	cursor: text;
+	border-radius: 10px;
+	/* display:inline; */
 }
 
 .searchBtn {
-	/* margin-top: 100%; */
-	margin-left: -400px;
+	background-color: rgba(134, 139, 131, 0.852);
+	font-weight: bold;
+	/* margin-top: -20%; */
+	/* margin-left: -400px; */
 	height: 35px;
 	width: 80px;
 	border-radius: 10px;
 	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	/* display: inline; */
+	/* align-items: center; */
+	/* justify-content: center; */
 }
 
 /* .searchBtn:hover {
@@ -25,7 +28,7 @@
 } */
 
 .searchcont {
-	display: flex;
+	/* display: flex; */
 	justify-content: flex-end;
-	margin-top: -50px;
+	margin-top: -40px;
 }

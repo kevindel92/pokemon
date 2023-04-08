@@ -1,45 +1,58 @@
 .createContainer {
-	background: url('../../components//img/hv.png') no-repeat center center fixed;
-	background-size: 30%;
+	background: url('../../components/img/egg.png') no-repeat center;
+	background-size: 82%;
 	width: 100%;
 	height: 100vh;
-	background-color: white;
+	/* background-color: white; */
+}
+
+.formContainer {
+	background-color: rgba(134, 139, 131, 0.852);
+	border-radius: 20px;
+	/* align-items: center; */
+	width: 700px;
+	height: 500px;
+	margin-left: 450px;
 }
 
 .btnReturnCreate {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 30px;
+	background-color: rgba(134, 139, 131, 0.852);
+	/* display: flex; */
+	margin-top: 1%;
+	margin-left: 190px;
+	/* justify-content: center; */
+	/* align-items: center; */
+	height: 40px;
 	font-weight: bold;
-	background-color: yellow;
-	text-decoration: none;
-	border: solid red 2px;
-	border-radius: 8px;
+	/* background-color: yellow; */
+	/* text-decoration: none; */
+	/* border: solid red 2px; */
+	border-radius: 10px;
 	cursor: pointer;
 }
 
 .submitBtnCreate {
-	margin-left: 150px;
-	width: 90px;
-	background-color: white;
-	border-radius: 5px;
+	margin-left: 80px;
+	width: 100px;
+	height: 40px;
+	background-color: rgba(134, 139, 131, 0.852);
+	border-radius: 10px;
 	cursor: pointer;
 }
 
-.submitBtnCreate:hover {
+/* .submitBtnCreate:hover {
 	background-color: red;
 	color: white;
-}
+} */
 
 .formCreate {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	font-weight: bold;
 	margin-top: 30px;
-	display: flex;
+	/* display: flex; */
 	flex-direction: column;
 	justify-content: space-around;
-	align-items: flex-start;
+	/* align-items: flex-start; */
 	margin-left: 50px;
 }
 
@@ -47,13 +60,13 @@
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	font-weight: bold;
 	margin-top: 30px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	margin-left: 50px;
+	/* display: flex; */
+	/* flex-direction: column; */
+	/* justify-content: center; */
+	/* align-items: center; */
+	margin-left: 20%;
 	width: 500px;
-	background: linear-gradient(red, yellow);
+	/* background: linear-gradient(red, yellow); */
 }
 
 .FormName {
@@ -102,11 +115,11 @@
 
 .errorForm {
 	color: red;
-	font-size: x-small;
+	font-size: small;
 	display: inline-flex
 	;
-	justify-content: space-around;
-	margin-left: 10 px;
+	/* justify-content: space-around; */
+	/* margin-left: 100 px; */
 }
 
 .TypesSelected {
@@ -114,6 +127,8 @@
 }
 
 .typesBtn {
+	width: 20px;
+	height: 20px;
 	background-color: red;
 	border-radius: 100%;
 	margin-left: 3px;

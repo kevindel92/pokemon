@@ -1,21 +1,23 @@
 .page-btn {
+	background-color: rgba(134, 139, 131, 0.852);
 	margin-left: 3%;
+	margin-top: 1%;
 	width: 80px;
 	height: 35px;
 	cursor: pointer;
-	border-radius: 6px;
-	border-color: orange;
+	border-radius: 10px;
+	/* border-color: rgb(249, 163, 4); */
 	font-weight: bold;
 	font-size: large;
 }
 
-.page-btn:hover {
+/* .page-btn:hover {
 	background-color: yellow;
 	color: black;
-}
-.page-btn:focus {
+} */
+/* .page-btn:focus {
 	background-color: red;
-}
+} */
 
 .page {
 	margin-left: 60px;

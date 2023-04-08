@@ -15,7 +15,7 @@ const createPkm = async (req, res) => {
 			image,
 			createdInDb
 		} = req.body;
-		let newPokemon = await Pokemon.create({
+		const newPokemon = await Pokemon.create({
 			id,
 			name,
 			hp,
@@ -27,7 +27,7 @@ const createPkm = async (req, res) => {
 			image,
 			createdInDb
 		});
-		let typeDb = await Type.findAll({
+		const typeDb = await Type.findAll({
 			where: { name: type }
 		});
 		newPokemon.addType(typeDb);

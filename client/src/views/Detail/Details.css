@@ -2,8 +2,7 @@
 	background: url('../../components//img/2Ut5lSVXDr2MvuTNa7VgBqTzap3.jpg');
 	background-size: cover;
 	height: 100vh;
-	/* display: flex; */
-	
+	/* display: flex; */	
 }
 
 .detailsCard {
@@ -17,20 +16,21 @@
     border-radius: 20px;
     width: 700px;
     margin-left: 25%;
+	display: flex;
     /* display: inline; */
 }
 
 .detailImg {
 	width: 300px;
 	height: 300px;
-	margin-left: -370px;
+	margin-left: -550px;
 	margin-bottom: 100px;
 	margin-top: 150px;
 }
 
 .detailStats {
 	font-size: 1.5em;
-	/* margin-left: 50px; */
+	margin-left: -50px;
 	margin-top: 150px;
 	font-weight: bold;
 	/* border: solid 3px black; */
@@ -42,7 +42,7 @@
 
 .detailName {
 	margin-left: 80px;
-	margin-top: 10px;
+	margin-top: 20px;
 	/* align-items: center; */
 	/* border: solid black 2px; */
 	/* height: 80px; */
@@ -74,6 +74,7 @@
 }
 
 .buttonHome {
+	background-color: rgba(134, 139, 131, 0.852);
 	margin-left: 50%px;
 	margin-top: 20px;
 	height: 50px;
