@@ -36,6 +36,6 @@ const pkmById = async (req, res) => {
 	}
 };
 
-module.exports = {
-    pkmById
+module.exports =  {
+	pkmById
 }

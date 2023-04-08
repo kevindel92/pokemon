@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.landingContainer {
+	background: url('../../components/img/14711-pokemon.jpg') no-repeat;
+	background-position: center center;
+	background-size: cover;
+	width: 100vmax;
+	height: 100vh;
+}
+
+.landingTittle {
+	margin-top: 60px;
+	font-size: 80px;
+	color: rgb(255, 203, 5);
+}
+
+.landingButton {
+	margin-top: 20px;
+	width: 160px;
+	height: 60px;
+	font-size: large;
+	font-weight: bold;
+	color: rgb(255, 203, 5);
+	background-color: rgb(45, 111, 182);
+	border-radius: 20px;
+	cursor: pointer;
+}

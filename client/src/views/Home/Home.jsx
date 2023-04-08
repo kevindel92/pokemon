@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import {  } from '../../redux/actions';
 import { typeFilter, createdFilter, orderSort, getPokemons, getTypes } from '../../redux/actions';
-// import '../styles/Home.css';
+import './Home.css';
 import Pokemon from '../../components/Card/Pokemon';
 import Paginado from '../../components/Paginated/Paginated';
 import NavBar from '../../components/NavBar/NavBar';
 import SearchBar from '../../components/SearchBar/SearchBar';
-import foto from '../../styles/styleImages/pkmlogo.png';
+import foto from '../../components/img/pngegg.png';
 import Error from '../../components/Error/Error';
+import loading from '../../components/img/www.gif'
 
 export default function Home() {
 	const dispatch = useDispatch();
@@ -74,10 +74,10 @@ export default function Home() {
 			</div>
 
 			<div className="sideBar">
-				<h1 className="orderTitle">Order by</h1>
+				{/* <h1 className="orderTitle">Order by</h1> */}
 				<div className="filterContainer">
 					<div className="filterNameContainer">
-						<h2 className="AlphTitle">Alphabetic/Attack</h2>
+						{/* <h2 className="AlphTitle">Alphabetic/Attack</h2> */}
 						<select className="filterName" onChange={(e) => handleOrderName(e)}>
 							<option value="default">Default</option>
 							<option value="az">A-Z</option>
@@ -88,7 +88,7 @@ export default function Home() {
 					</div>
 
 					<div className="createdByContainer">
-						<h2 className="CreatedTitle">Created </h2>
+						{/* <h2 className="CreatedTitle">Created</h2> */}
 						<select
 							className="filterCreated"
 							onChange={(e) => handleFilterCreated(e)}
@@ -99,7 +99,7 @@ export default function Home() {
 						</select>
 					</div>
 					<div className="typesContainer">
-						<h2 className="TypeTitle">Type</h2>
+						{/* <h2 className="TypeTitle">Type</h2> */}
 						<select
 							className="filterType"
 							onChange={(e) => handleFilterTypes(e)}
@@ -140,7 +140,9 @@ export default function Home() {
 						);
 					})
 				) : (
-					<h1 className="homeLoading">Loading...</h1>
+					<div>
+					<img className='loading' src={loading} alt='Loading...' ></img>
+				</div>
 				)}
 			</>
 		</div>

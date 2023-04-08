@@ -1,3 +1,7 @@
+.homeContainer {
+	/* color: yellowgreen; */
+}
+
 .filterContainer {
 	display: flex;
 	align-items: center;
@@ -37,9 +41,10 @@
 }
 
 .fotohome {
+	margin-left: -70%;
 	width: 400px;
 	height: 150px;
-	cursor: pointer;
+	/* cursor: pointer; */
 }
 
 .pokemonCards {
@@ -55,31 +60,31 @@
 	margin-right: 60px;
 }
 
-.AlphTitle {
+/* .AlphTitle {
 	font-weight: bold;
-	color: white;
-}
+	color: rgb(223, 15, 15);
+} */
 
-.TypeTitle {
-	color: white;
-}
+/* .TypeTitle {
+	color: rgb(237, 9, 9);
+} */
 
-.orderTitle {
+/* .orderTitle {
 	display: flex;
 	margin-left: 95vh;
-	background-color: white;
+	background-color: rgb(212, 19, 19);
 	border-radius: 8px;
 	width: 250px;
 	margin-top: 50px;
 	align-items: center;
 	justify-content: center;
-}
+} */
 
 .homeLoading {
-	font-size: xx-large;
-	border: black 6px solid;
+	/* font-size: xx-large; */
+	/* border: black 6px solid; */
 	width: 300px;
 	margin-left: 500px;
 	border-radius: 9px;
-	background-color: antiquewhite;
+	/* background-color: antiquewhite; */
 }

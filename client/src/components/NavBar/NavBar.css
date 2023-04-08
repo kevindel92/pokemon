@@ -7,6 +7,7 @@
 	align-items: center;
 	font-size: medium;
 	font-weight: bold;
+	cursor: pointer;
 
 	margin-top: -110px;
 	background-color: yellow;

@@ -6,7 +6,7 @@ import {
 	TYPE_FILTER,
 	CREATED_FILTER,
 	ORDER,
-	CREATE_POKEMON
+	CREATE_POKEMON,
 } from './actions';
 
 let initialState = {

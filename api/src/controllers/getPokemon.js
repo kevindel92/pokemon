@@ -1,113 +1,79 @@
 const axios = require('axios');
 const { Pokemon, Type } = require('../db');
 
-const dataApi = async () => {
-	try {
-		let request = await axios.get(
-			'https://pokeapi.co/api/v2/pokemon?offset=0&limit=40'
-		);
+// trae los pokemons
 
-		let requestUrl = request.data.results.map((pokemon) =>
-			axios.get(pokemon.url)
-		);
+const getPokemonsApi = async () => {
+    try {
+        const pokeInfo = [];
+        const pokeApiUrl = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=15');
+        const results = pokeApiUrl.data.results;
 
-		let subRequest = await axios.all(requestUrl);
+        for(let i = 0; i < results.length; i++){
+            const pokes = await axios.get(results[i].url);
+            
+            pokeInfo.push({
+                id: pokes.data.id,
+                name: pokes.data.name,
+                image: pokes.data.sprites.other.dream_world.front_default,
+                hp:pokes.data.stats[0].base_stat,
+                attack: pokes.data.stats[1].base_stat,
+                defense: pokes.data.stats[2].base_stat,
+                speed: pokes.data.stats[5].base_stat,
+                height: pokes.data.height,
+                weight: pokes.data.weight,
+                type: pokes.data.types.map((typ) => typ.type.name).join(', ')
+            });
+        }
+        console.log('Esta es la dataApi', pokeInfo);
+        return pokeInfo;
+    } catch (error) {
+        return {error: error.message}
+    }
+}
+getPokemonsApi();
 
-		let pokemonData = subRequest.map((pokemon) => pokemon.data);
-
-		let info = pokemonData.map((pokemon) => {
-			return {
-				id: pokemon.id,
-				name: pokemon.name,
-				height: pokemon.height,
-				weight: pokemon.weight,
-				hp: pokemon.stats[0].base_stat,
-				attack: pokemon.stats[1].base_stat,
-				defense: pokemon.stats[2].base_stat,
-				speed: pokemon.stats[5].base_stat,
-				image: pokemon.sprites.other.dream_world.front_default,
-				createdInDb: pokemon.createdInDb,
-				type: pokemon.types.map((pokemon) => pokemon.type.name).join(', ')
-			};
-		});
-
-		return info;
-	} catch (error) {
-		console.log(error);
-	}
-};
-
-//---------------------------------------------------------------------------------------------
-
-const dataDb = async () => {
-	try {
-		let infoDb = await Pokemon.findAll({
-			include: {
-				model: Type,
-				attributes: ['name'],
-				through: {
-					attributes: []
-				}
-			}
-		});
-
-		let aux = infoDb.map((el) => {
+const getPokemonsDb = async () => {
+    try {
+        const results = await Pokemon.findAll({
+            include: {
+                model: Type,
+                attributes: ['name'],
+                through: {
+                    attributes: []
+                }
+            }
+        });
+		const results2 = results.map((el) => {
 			return {
 				id: el.id,
 				name: el.name,
+				image: el.image,
 				hp: el.hp,
-				type: el.types.map((e) => e.name).join(', '),
 				attack: el.attack,
 				defense: el.defense,
 				speed: el.speed,
 				height: el.height,
 				weight: el.weight,
-				image: el.image
+				type: el.types.map((e) => e.name).join(', ')
 			};
 		});
+        console.log('Esta es la dataDb', results2);
+        return results2;
+    } catch (error) {
+        return {error: error.message};
+    }
+}
 
-		return aux;
-	} catch (error) {
-		console.log(error);
-	}
-};
-
-//-------------------------------------------------------------------------------------------------
-
-const allPokemon = async () => {
-	try {
-		const apiPkm = await dataApi();
-		const dbPkm = await dataDb();
-		const allPkm = dbPkm.concat(apiPkm);
-
-		return allPkm;
-	} catch (error) {
-		console.log(error);
-	}
-};
-
-//-----------------------------------------------------------------------------------------------------
-const getAllPkm = async (req, res) => {
-	const { name } = req.query;
-
-	try {
-		if (name) {
-			let aux = await allPokemon();
-			let aux2 = aux.filter((el) => el.name === name);
-
-			res.status(200).send(aux2);
-		} else {
-			const allPokemons = await allPokemon();
-
-			res.send(allPokemons);
-		}
-	} catch (error) {
-		console.log(error);
-	}
-};
-
-//-----------------------------------------------------------------------------------------------------
-
-module.exports = {
-	getAllPkm
-};
+const getAllPokemonsApiDb = async () => {
+    try {
+        const apiInfo = await getPokemonsApi();
+        const dbInfo = await getPokemonsDb();
+        const infoTotal = dbInfo.concat(apiInfo);
+        console.log('Esta es la info total', infoTotal);
+        return infoTotal;
+    } catch (error) {
+    return {error: error.message}
+    }
+}
+module.exports = getAllPokemonsApiDb;

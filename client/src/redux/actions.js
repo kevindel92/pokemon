@@ -8,6 +8,14 @@ export const TYPE_FILTER = 'TYPE_FILTER';
 export const CREATED_FILTER = 'CREATED_FILTER';
 export const ORDER = 'ORDER';
 export const CREATE_POKEMON = 'CREATE_POKEMON';
+export const CLEAN_POKEMONS = 'CLEAN_POKEMONS';
+
+export const cleanPokemons = (dispatch) => {
+    return dispatch({
+        type: CLEAN_POKEMONS,
+        payload: []
+    })
+};
 
 export function getPokemons() {
 	return async function (dispatch) {
@@ -84,7 +92,9 @@ export function searchByName(name) {
 				payload: info.data
 			});
 		} catch (error) {
-			console.log(error);
+			alert('Pokemon not found');
+            window.location.href = "http://localhost:3000/home";
+            console.log(error);
 		}
 	};
 }

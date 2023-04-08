@@ -1,26 +1,24 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { searchByName } from '../../redux/actions';
-// import '../styles/SearchBar.css';
+import { searchByName, cleanPokemons } from '../../redux/actions';
+import './SearchBar.css';
 
 export default function SearchBar() {
-	const [name, setName] = useState('');
 	const dispatch = useDispatch();
+	const [name, setName] = useState('');
 
-	function handleChange(e) {
+	function handleInputChange(e) {
 		e.preventDefault();
 		setName(e.target.value.toLowerCase());
+		// console.log(name);
 	}
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		if (name.length < 1 || name[0] === ' ' || typeof name !== 'string') {
-			alert('Please, enter a valid name');
-		} else {
-			dispatch(searchByName(name));
-			setName('');
-		}
+		dispatch(cleanPokemons(dispatch));
+		dispatch(searchByName(name));
+		setName('');
 	}
 
 	return (
@@ -31,7 +29,7 @@ export default function SearchBar() {
 					className="searchInput"
 					type="text"
 					placeholder="Search Pokemon"
-					onChange={(e) => handleChange(e)}
+					onChange={(e) => handleInputChange(e)}
 				></input>
 				<button className="searchBtn" type="submit">
 					Search

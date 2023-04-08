@@ -1,0 +1,22 @@
+.pokemonCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    margin-left: 50px;
+    float: left;
+    border: solid rgb(0, 0, 0) 2px;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0.651);
+}
+
+.cardName {
+    color: rgb(255, 0, 0);
+}
+
+.cardImg {
+    width: 200px;
+    height: 190px;
+}

@@ -11,9 +11,12 @@ const getAllTypes = async (req, res) => {
 			})
 		);
 		const allTypes = await Type.findAll();
-		res.send(allTypes);
+		console.log('Estos son los tipos',allTypes);
+		return res.status(200).json(allTypes);
+		
 	} catch (error) {
-		console.log(error);
+		// console.log(error);
+		return res.status(400).json({error: error.message})
 	}
 };
 

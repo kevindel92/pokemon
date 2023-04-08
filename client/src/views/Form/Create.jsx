@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { createPokemon, getTypes } from '../../redux/actions';
-// import '../styles/Create.css';
+import './Create.css';
 
 export default function Create() {
 	const dispatch = useDispatch();
@@ -119,16 +119,11 @@ export default function Create() {
 		if (validateTypes(data.type)) errors.type = 'Select types: min 1 max 2';
 		if (validateStats(data.hp)) errors.hp = 'min value: 0, max value:999';
 		if (validateStats(data.speed)) errors.speed = 'min value: 0, max value:999';
-		if (validateStats(data.attack))
-			errors.attack = 'min value: 0, max value:999';
-		if (validateStats(data.defense))
-			errors.defense = 'min value: 0, max value:999';
-		if (validateStats(data.weight))
-			errors.weight = 'min value: 0, max value:999';
-		if (validateStats(data.height))
-			errors.height = 'min value: 0, max value:999';
-		if (validateDuplicateName(data.name))
-			errors.name = 'name has already exist';
+		if (validateStats(data.attack)) errors.attack = 'min value: 0, max value:999';
+		if (validateStats(data.defense)) errors.defense = 'min value: 0, max value:999';
+		if (validateStats(data.weight)) errors.weight = 'min value: 0, max value:999';
+		if (validateStats(data.height)) errors.height = 'min value: 0, max value:999';
+		if (validateDuplicateName(data.name)) errors.name = 'name has already exist';
 		return errors;
 	}
 
